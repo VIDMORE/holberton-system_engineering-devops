@@ -1,2 +1,2 @@
 #!/bin/bash
-string -C d HOLBERTON
+offset 0 type string HOLBERTON
