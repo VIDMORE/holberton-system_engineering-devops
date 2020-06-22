@@ -5,9 +5,9 @@ FILE="/var/run/holbertonscript.pid"
 sudo touch $FILE
 echo $$ > $FILE
 
-trap "echo I hate the kill command && sudo rm $FILE && exit" SIGTERM
+trap 'echo I hate the kill command && sudo rm $FILE && exit' SIGTERM
 trap "echo Y U no love me?!" SIGINT
-trap "sudo rm $FILE && exit" SIGQUIT
+trap 'sudo rm $FILE && exit' SIGQUIT
 
 for ((;;))
 do
