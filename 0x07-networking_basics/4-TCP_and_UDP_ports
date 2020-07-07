@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Show the ports that are listening using the TDP/TCP Network
+ 
+netstat -pl
