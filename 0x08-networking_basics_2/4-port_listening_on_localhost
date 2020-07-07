@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#This script configures an Ubuntu server
+
+nc -l 2389
