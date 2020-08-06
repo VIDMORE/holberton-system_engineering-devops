@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
-#Installing Nginx in my server
+#script that /redirect_me is redirecting to another page
 
 sudo apt-get -y update
 sudo apt-get -y install nginx
-sudo ufw app list
-sudo ufw allow 'Nginx HTTP'
-echo "Holberton School" > /var/www/html/index.html
-sudo sed -i "/server_name _;/ a\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default
-sudo service nginx start
+echo "Holberton School" | sudo tee /var/www/html/index.html
+sudo sed -i '/server_name _;/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+sudo /etc/init.d/nginx restart
