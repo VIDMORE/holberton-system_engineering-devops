@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#displays information about subdomains
+
+function dig_info() {
+	if [ $# -eq 2 ]; then
+		echo -n "The subdomain $2 is a "
+		dig $2.$1 | grep -A1 "ANSWER SECTION:" | awk 'NF > 4 {print}' | awk '{print $4 " record and points to " $5}'
+	elif [ $# -eq 1 ]; then
+		echo -n "The subdomain www is a "
+		dig www.$1 | grep -A1 "ANSWER SECTION:" | awk 'NF > 4 {print}' | awk '{print $4 " record and points to " $5}'
+		for i in lb-01 web-01 web-02; do
+			echo -n "The subdomain $i is a "
+			dig $i.$1 | grep -A1 "ANSWER SECTION:" | awk 'NF > 4 {print}' | awk '{print $4 " record and points to " $5}'
+		done
+	fi
+}
+
+dig_info $1 $2
