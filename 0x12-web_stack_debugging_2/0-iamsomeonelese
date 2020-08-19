@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Get the whoami of any user created
+
+sudo -u "$1" whoami
