@@ -8,7 +8,7 @@ from sys import argv
 
 if __name__ == "__main__":
     user_id = argv[1]
-    filename = f'{user_id}.csv'
+    filename = '{}.csv'.format(user_id)
     url = "https://jsonplaceholder.typicode.com"
 
     user = requests.get("{}/users/{}" .format(url, user_id)).json()

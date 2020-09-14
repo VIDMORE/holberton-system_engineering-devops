@@ -12,7 +12,8 @@ if __name__ == "__main__":
     for user in users:
         tasks = []
         user_id = user.get('id')
-        todo_list = requests.get(f'{url}/users/{user_id}/todos').json()
+        todo_list = requests.get('{}/users/{}/todos'
+                                 .format(url, user_id)).json()
         for value in todo_list:
             task = {}
             task["username"] = user.get('username')

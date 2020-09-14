@@ -10,7 +10,7 @@ if __name__ == "__main__":
     user_id = argv[1]
     tasks = []
     data = {}
-    filename = f'{user_id}.json'
+    filename = '{}.json'.format(user_id)
     url = "https://jsonplaceholder.typicode.com"
 
     user = requests.get("{}/users/{}" .format(url, user_id)).json()
