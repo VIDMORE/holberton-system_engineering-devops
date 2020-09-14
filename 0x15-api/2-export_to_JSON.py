@@ -7,7 +7,6 @@ import requests
 from sys import argv
 
 if __name__ == "__main__":
-
     user_id = argv[1]
     tasks = []
     data = {}
