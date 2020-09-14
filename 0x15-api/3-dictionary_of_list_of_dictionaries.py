@@ -6,14 +6,13 @@ import json
 import requests
 
 if __name__ == "__main__":
-    url = requests.get('https://jsonplaceholder.typicode.com/users/').json()
+    url = "https://jsonplaceholder.typicode.com"
+    users = requests.get("{}/users/".format(url)).json()
     data = {}
-    for user in url:
+    for user in users:
         tasks = []
         user_id = user.get('id')
-        todo_list = requests.get(
-            f'https://jsonplaceholder.typicode.com/users/{user_id}/todos}')
-        .json()
+        todo_list = requests.get(f'{url}/users/{user_id}/todos').json()
         for value in todo_list:
             task = {}
             task["username"] = user.get('username')
@@ -22,4 +21,4 @@ if __name__ == "__main__":
             tasks.append(task)
         data[user_id] = tasks
     with open("todo_all_employees.json", 'w') as f:
-        json.dump(task_dict, f)
+        json.dump(data, f)
