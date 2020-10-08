@@ -17,7 +17,7 @@ server {
         listen 80 default_server;
 
         location /api/ {
-                proxy_pass http://0.0.0.0:5002/api;
+                proxy_pass http://0.0.0.0:5002/api/;
         }
 
         location ~ ^/airbnb-dynamic?/number_odd_or_even/([0-9]+)$ {
